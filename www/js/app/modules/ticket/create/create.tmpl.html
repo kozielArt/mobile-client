@@ -1,0 +1,23 @@
+<ion-view view-title="Wirtualna Kolejka - Mój bilet" >
+  <ion-content >
+    <div class="card">
+      <div class="item item-divider">
+        <h1>Tworzenie biletu</h1>
+      </div>
+      <div class="item" ng-if="ticketCreateCtrl.selectedBranch !== undefined ">
+        <h3>Wybrany Oddział : {{ ticketCreateCtrl.selectedBranch.name}}</h3>
+      </div>
+      <div class="item" ng-if="ticketCreateCtrl.selectedService !== undefined ">
+        <h3>Wybrana Usługa : {{ ticketCreateCtrl.selectedService.name}}</h3>
+        <h3>Opis: {{ticketCreateCtrl.selectedService.description}}</h3>
+      </div>
+      <div ui-view name="ticketCreateForm"></div>
+    </div>
+
+  </ion-content>
+  <div class="bar bar-footer bar-dark">
+    <button class="button-full button-clear" ng-click="ticketCreateCtrl.cancel()">Wróć</button>
+  </div>
+</ion-view>
+
+

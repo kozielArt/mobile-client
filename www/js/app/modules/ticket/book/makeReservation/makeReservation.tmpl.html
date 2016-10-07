@@ -1,0 +1,26 @@
+<form role='form' name='makeReservationForm'>
+<ul>
+  <li class="item">
+    <div>
+      <div class="item item-text-wrap">
+        <h2>Oddział : {{makeReservationCtrl.reservation.product.branch.name}} </h2>
+        <h2>Usługa : {{makeReservationCtrl.reservation.product.name}}</h2>
+        <h2>Data rezerwacji : {{makeReservationCtrl.reservation.startDateTime |date : 'yyyy-MM-dd'}}</h2>
+        <h2>Godzina wizyty : {{makeReservationCtrl.reservation.startDateTime |date : 'HH:mm'}}</h2>
+      </div>
+    </div>
+  </li>
+</ul>
+</ul>
+<div class="item item-input-inset" >
+  <label class="item-input-wrapper">Numer telefonu
+    <input type="text" ng-model="makeReservationCtrl.reservation.idententification" placeholder="Wpisz numer telefonu" required/>
+  </label>
+</div>
+
+<div class="col text-center">
+  <button class="button button-outline button-positive" ng-disabled="makeReservationForm.$invalid" ng-click="makeReservationCtrl.bookAppointment()">Potwierdź
+    rezerwację
+  </button>
+</div>
+</form>

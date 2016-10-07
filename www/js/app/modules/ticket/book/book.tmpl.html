@@ -1,0 +1,18 @@
+<ion-view view-title="Wirtualna Kolejka " >
+
+  <div class="bar bar-subheader">
+    <h3 class="title">Tworzenie rezerwacji</h3>
+  </div>
+
+  <ion-content class="has-header has-subheader">
+
+
+      <div ui-view name="bookAppointmentForm"></div>
+
+  </ion-content>
+  <div class="bar bar-footer bar-dark">
+    <button class="button-full button-clear" ng-click="bookAppointmentCtrl.cancel()">Wróć</button>
+  </div>
+</ion-view>
+
+

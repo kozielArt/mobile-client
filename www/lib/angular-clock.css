@@ -1,0 +1,10 @@
+@import url('http://fonts.googleapis.com/css?family=Rationale');
+/* this import should be first line in css file else add as <link> in html*/
+.widget-clock.blue-light .digital {
+  text-align: center;
+}
+.widget-clock.blue-light .time {
+  font-family: 'Rationale', sans-serif;
+  font-size: 3.0em;
+  color: #585858 ;
+}

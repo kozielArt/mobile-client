@@ -1,0 +1,35 @@
+<ion-view view-title="Wirtualna Kolejka" cache-view="false">
+  <ion-content>
+    <div class="card">
+      <div class="item item-text-wrap">
+        W kilka minut załóż własne konto. Formularz tworzenia konta użytkownika
+      </div>
+    </div>
+    <form name="createForm" ng-submit="createCtrl.createAccount()">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Adres email</span>
+          <input type="email" name="input" placeholder="Adres email" ng-model="createCtrl.form.emailAddress" required/>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Hasło</span>
+          <input type="password" placeholder="Hasło" ng-model="createCtrl.form.password" required/>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Imię</span>
+          <input type="text" placeholder="Imię" ng-model="createCtrl.form.firstName" required/>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Nazwisko</span>
+          <input type="text" placeholder="Nazwisko" ng-model="createCtrl.form.lastName" required/>
+        </label>
+      </div>
+
+        <div class="col text-center">
+          <button class="button button-outline button-positive" type="submit" ng-disabled="createForm.$invalid">Załóż konto</button>
+        </div>
+
+    </form>
+  </ion-content>
+</ion-view>
+

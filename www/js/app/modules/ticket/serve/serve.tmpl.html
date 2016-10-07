@@ -1,0 +1,77 @@
+<ion-view view-title="Wirtualna Kolejka">
+  <div class="bar bar-subheader">
+    <h3 class="title">Mój bilet</h3>
+  </div>
+  <ion-content class="has-header has-subheader">
+      <div class="col text-center">
+        <h1> {{ticketServeCtrl.ticket.ticketId }}</h1>
+        <h4>{{ticketServeCtrl.ticket.branchName}}</h4>
+        <h4>{{ticketServeCtrl.ticket.serviceName}}</h4>
+      </div>
+
+
+    <div class="card" ng-if="ticketServeCtrl.ticket.transaction.status == 'SERVING'">
+      <div class="item item-divider">
+        <h1 style="font-size:26px">Trwa Obsługa</h1>
+      </div>
+      <div  class="item item-text-wrap">
+      <h3> Czas oczekiwania  : {{ticketServeCtrl.waitingTime | date:"HH'g'mm'm'ss's'"}}</h3>
+      <h3> Godzina rozpoczęcia obsługi : {{ticketServeCtrl.ticket.transaction.callTime |date:"HH:mm"}}</h3>
+      <h3> Czas obsługi : {{ticketServeCtrl.servingTime | date:"mm'm'ss's'"}}</h3>
+      <h3> Twoja kolejka : {{ticketServeCtrl.ticket.transaction.queueName }}</h3>
+      </div>
+    </div>
+
+
+    <div class="card" ng-if="ticketServeCtrl.ticket.transaction.status == 'WAITING'">
+      <div class="item item-divider">
+        <h1 style="font-size:26px">Trwa Oczekiwanie</h1>
+      </div>
+      <div  class="item item-text-wrap">
+      <h3> Godzina pobrania biletu : {{ticketServeCtrl.ticket.createTime| date:"HH:mm"}}</h3>
+      <h3> Czas oczekiwania : {{ticketServeCtrl.waitingTime | date:"HH'h'mm'm'ss's'"}}</h3>
+      <h3> Twoje kolejka : {{ticketServeCtrl.ticket.transaction.queueName }}</h3>
+      </div>
+    </div>
+
+    <!--<div ng-if="ticketServeCtrl.ticket.watchActive == true">
+      <ds-widget-clock show-digital theme="blue-light" digital-format="'hh:mm:ss'"></ds-widget-clock>
+    </div>-->
+
+    <div class="card"
+         ng-if="ticketServeCtrl.ticket.transaction.startTime == undefined && !ticketServeCtrl.ticket.watchActive">
+      <div class="item item-divider">
+        <h1 style="font-size:26px">Zakończono obsługę</h1>
+      </div>
+
+      <div  class="item item-text-wrap">
+        <h3>Twoja obsługa trwała {{ticketServeCtrl.endTime - ticketServeCtrl.callTimeEnd | date:"mm'm'ss's'"}} minut</h3>
+        <h3>Zakończenie obsługi nastąpiło o {{ticketServeCtrl.ticket.endedTransactions[0].endTime |
+          date:'HH:mm'}}</h3>
+        <h3>Zostałeś obsłużony przez {{ticketServeCtrl.ticket.endedTransactions[0].staffName}}</h3>
+      </div>
+
+      <div>
+        <div class="col text-center">Twoja ocena obsługi
+          <ionic-ratings ratingsobj='ratingsObject'></ionic-ratings>
+        </div>
+      </div>
+
+      <label class="item item-input">
+        <input type="text" ng-model="ticketServeCtrl.comment" placeholder="Twój komentarz">
+      </label>
+
+      <div class="row">
+        <div class="col text-center">
+          <button class="button button-outline button-positive" type="button" ng-click="ticketServeCtrl.rate()">
+            Prześlij ocene
+          </button>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </ion-content>
+</ion-view>
+
+

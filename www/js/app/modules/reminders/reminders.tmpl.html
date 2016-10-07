@@ -1,0 +1,46 @@
+<ion-view view-title="Wirtualna Kolejka">
+
+  <div class="bar bar-subheader">
+    <h3 class="title">Przypomnienia</h3>
+  </div>
+  <ion-content class="has-header has-subheader">
+    <div class="card" ng-hide="remindersCtrl.loading">
+
+      <div class="item item-text-wrap" ng-if="remindersCtrl.appointments.length === 0">
+        <h3>Nie masz aktualnie żadnych zaplanowanych wizyt</h3>
+      </div>
+
+      <ul class="list" ng-if="remindersCtrl.appointments" ng-show="remindersCtrl.appointments.length > 0">
+        <ul>
+          <li class="item" ng-repeat="appointment in remindersCtrl.appointments">
+            <div class="item item-text-wrap" ng-if="remindersCtrl.appointments">
+              <div class="item item-button-right">
+                <button class="button button-assertive" ng-click="remindersCtrl.deleteAppointment(appointment)">
+                  <i class="icon ion-android-delete"></i>
+                </button>
+                <h>{{appointment.appointment.resource.branch.description}}</h>
+                <h2>{{appointment.appointment.resource.branch.name}},
+                  {{appointment.appointment.service.name}}</h2>
+                <h3>Data spotkania: {{appointment.appointment.startDateTime |date : 'yyyy-MM-dd'}}</h3>
+                <h3>Godzina spotkania {{appointment.appointment.startDateTime |date : 'HH:mm'}}</h3>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </ul>
+
+
+    </div>
+    <div class="card" ng-show="remindersCtrl.loading">
+      <div class="item item-text-wrap" >
+        <h3>Czekaj... trwa ładowanie</h3>
+      </div>
+
+      </div>
+  </ion-content>
+</ion-view>
+<ion-nav-view name="content"></ion-nav-view>
+
+
+
+

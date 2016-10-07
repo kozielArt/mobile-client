@@ -1,0 +1,26 @@
+<ion-view view-title="Wirtualna Kolejka">
+  <div class="bar bar-subheader">
+    <h3 class="title">Historia biletów</h3>
+  </div>
+  <ion-content class="has-header has-subheader">
+    <div class="card">
+
+    <div class="item item-text-wrap" ng-if="historyCtrl.tickets.length === 0">
+      <h3>Nie masz aktualnie żadnych biletów.</h3>
+    </div>
+
+    <ul class="list">
+      <ul>
+        <li class="item" ng-repeat="ticket in historyCtrl.tickets | orderBy : 'createTime' : 'reverse' ">
+            <div class="item item-button-right">
+              <h1>{{ticket.ticketId }}<br></h1>
+              <h3>{{ticket.endedTransactions[0].startTime | date:"yyyy-MM-dd HH:mm"}}</h3>
+              <h3>{{ticket.branchName}} - {{ticket.serviceName}}</h3>
+            </div>
+        </li>
+      </ul>
+    </ul>
+
+    </div>
+</ion-view>
+<ion-nav-view name="content"></ion-nav-view>

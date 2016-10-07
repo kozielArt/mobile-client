@@ -1,0 +1,28 @@
+<ion-view view-title="Usuwanie konta">
+  <ion-content>
+    <div class="card">
+      <div class="item item-text-wrap">
+       <h3>Potwierdź swoje hasło w celu usunięcia konta.</h3>
+      </div>
+    </div>
+    <div class="item item-body">
+      <form name="removeForm" ng-submit="removeCtrl.removeAccount()">
+        <div class="list">
+
+          <label class="item item-input">
+            <span class="input-label">Hasło</span>
+            <input type="password" ng-model="removeCtrl.form.password" required/>
+          </label>
+
+        </div>
+
+        <div class="col text-center">
+          <button class="button button-outline button-positive" ng-click="removeCtrl.cancel()">Anuluj</button>
+        </div>
+        <div class="col text-center">
+        <button class="button button-outline button-assertive" type="submit"  ng-disabled="removeForm.$invalid">Usuń konto</button>
+          </div>
+      </form>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,27 @@
+<div class="card" ng-if="!branchSelectCtrl.loading && !branchSelectCtrl.noBranchesAvailable">
+  <div class="item item-divider">
+    Wybierz oddział
+  </div>
+  <ul class="list" ng-if="branchSelectCtrl.branches.length != 0">
+    <li class="item" ng-repeat="branch in branchSelectCtrl.branches" ng-click="branchSelectCtrl.selectBranch(branch)">
+      <h2>{{branch.name}}</h2>
+      <p> Dziś czynny w godzinach {{branch.openingHour | limitTo: 5 }} - {{branch.closingHour | limitTo: 5 }}</p>
+    </li>
+  </ul>
+</div>
+<div class="card" ng-if="!branchSelectCtrl.loading && branchSelectCtrl.noBranchesAvailable">
+  <div class="item item-divider">
+    Brak czynnych oddziałów
+  </div>
+  <div class="item">
+    <p>
+      Wszystkie oddziały są w tej chwili nieczynne<br>
+    </p>
+  </div>
+</div>
+<div class="card" ng-if="branchSelectCtrl.loading">
+  <div class="item item-divider">
+    Czekaj...
+  </div>
+</div>
+

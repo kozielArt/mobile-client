@@ -1,0 +1,12 @@
+<div class="item item-divider">
+  Wybierz godzinę
+</div>
+<ul class="list">
+        <li class="item" ng-repeat="hour in bookHourCtrl.hours" ng-click="bookHourCtrl.selectHour(hour)">
+            <div >
+                <div class="item item-text-wrap">
+                  {{hour.startDateTime | date : 'HH:mm'}} - {{hour.endDateTime | date : 'HH:mm'}}
+                </div>
+            </div>
+        </li>
+</ul>

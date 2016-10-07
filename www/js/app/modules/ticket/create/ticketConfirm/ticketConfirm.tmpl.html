@@ -1,0 +1,12 @@
+<div class="item item-text-wrap">
+  <div class="col text-center">
+    <button class="button button-outline button-positive" ng-click="ticketConfirmCtrl.createTicket()"
+            ng-if="ticketConfirmCtrl.status == 'READY_TO_PRINT'">
+      Tak chcę pobrać bilet
+    </button>
+    <button class="button button-outline button-assertive" ng-click="ticketCreateCtrl.cancel()"
+            ng-if="ticketConfirmCtrl.status == 'READY_TO_PRINT'">
+      Anuluj
+    </button>
+  </div>
+</div>

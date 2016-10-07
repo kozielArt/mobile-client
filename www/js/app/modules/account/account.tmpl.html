@@ -1,0 +1,39 @@
+<ion-view view-title="Wirtualna Kolejka">
+  <div class="bar bar-subheader">
+    <h3 class="title">Twoje konto</h3>
+  </div>
+  <ion-content class="has-header has-subheader">
+    <div class="list card">
+      <div class="item item-text-wrap">
+        <h2>
+          {{accountCtrl.form.firstName}} {{accountCtrl.form.lastName}}
+        </h2>
+        <p>
+          W serwisie od {{accountCtrl.form.created |date : 'yyyy-MM-dd'}}
+        </p>
+      </div>
+
+      <div class="item item-body">
+        <p>
+          Witaj w zakładce swojego konta. Tutaj możesz zmienić swoje informacje oraz usunąć konto. <br>
+          Użyj wysuwanego menu aby skorzystać z funkcji aplikacji.
+        </p>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="accountCtrl.editPasswordAction()">
+          <i class="icon ion-edit"></i>
+          Zmień hasło
+        </a>
+        <a class="tab-item" ng-click="accountCtrl.editAccountAction()">
+          <i class="icon ion-settings"></i>
+          Zmień swoje dane
+        </a>
+        <a class="tab-item" ng-click="accountCtrl.removeAccountAction()">
+          <i class="icon ion-trash-a"></i>
+          Usuń konto
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

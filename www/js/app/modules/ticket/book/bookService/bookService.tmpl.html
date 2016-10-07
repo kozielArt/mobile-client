@@ -1,0 +1,13 @@
+<div class="item item-divider">
+  Wybierz usługę
+</div>
+<ul class="list">
+      <li class="item" ng-repeat="product in bookServiceCtrl.services" ng-click="bookServiceCtrl.selectService(product)">
+        <div >
+          <div class="item item-text-wrap">
+            {{product.name}}
+          </div>
+        </div>
+      </li>
+</ul>
+

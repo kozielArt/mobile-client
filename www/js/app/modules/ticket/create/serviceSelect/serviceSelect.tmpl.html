@@ -1,0 +1,29 @@
+<div class="card" ng-if="!serviceSelectCtrl.loading && !serviceSelectCtrl.noServicesAvailable">
+  <div class="item item-divider">
+    Wybierz usługę
+  </div>
+  <ul class="list" ng-if="serviceSelectCtrl.services.length != 0">
+    <li class="item" ng-repeat="service in serviceSelectCtrl.services" ng-click="serviceSelectCtrl.selectService(service)">
+      <h2>{{service.name}}</h2>
+      <p>{{service.description}}</p>
+    </li>
+  </ul>
+</div>
+<div class="card" ng-if="!serviceSelectCtrl.loading && serviceSelectCtrl.noServicesAvailable">
+  <div class="item item-divider">
+    Brak dostępnych usług
+  </div>
+  <div class="item">
+    <p>
+      W wybranym oddziale nie są aktualnie dostępne żadne usługi.<br>
+    </p>
+
+
+  </div>
+</div>
+<div class="card" ng-if="serviceSelectCtrl.loading">
+  <div class="item item-divider">
+    Czekaj...
+  </div>
+</div>
+

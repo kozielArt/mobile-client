@@ -1,0 +1,36 @@
+<ion-view view-title="Wirtualna Kolejka">
+  <ion-content>
+    <div class="list card">
+      <div class="item item-divider">
+
+        <h1>Logowanie</h1>
+
+      </div>
+      <div class="item item-body">
+        <form name="loginForm" ng-submit="loginCtrl.loginAction()">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">Email</span>
+              <input type="text" ng-model="loginCtrl.username" required/>
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Hasło</span>
+              <input type="password" ng-model="loginCtrl.password" required/>
+            </label>
+            <label class="item item-input">
+              <ion-toggle ng-model="loginCtrl.rememberMe" toggle-class="toggle-positive">Zapamiętaj mnie</ion-toggle>
+            </label>
+            <label class="item">
+              <button class="button button-block button-positive" type="submit" ng-disabled="loginForm.$invalid">Zaloguj</button>
+            </label>
+
+          </div>
+        </form>
+        <p>
+          Do czego jest mi potrzebne <a ui-sref="app.account.benefits" class="">konto użytkownika</a>?
+        </p>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

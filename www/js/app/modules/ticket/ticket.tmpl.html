@@ -1,0 +1,39 @@
+<ion-view view-title="Wirtualna Kolejka">
+
+  <div class="bar bar-subheader">
+    <h3 class="title">Tworzenie biletu</h3>
+  </div>
+
+  <ion-content class="has-header has-subheader">
+    <div class="card" ng-hide="ticketCtrl.loading" ng-if="ticketCtrl.storedTicket != undefined">
+      <div >
+        <div class="col text-center">
+          <button class="button button-outline button-positive" ng-click="ticketCtrl.displayTicket()"><i
+            class="icon ion-pin"> Mój bilet {{ticketCtrl.storedTicket.ticketId }}</i></button>
+          <h5>Twój bilet jest nadal aktywny</h5>
+        </div>
+      </div>
+    </div>
+    <div class="card" ng-hide="ticketCtrl.loading" ng-if="ticketCtrl.storedTicket == undefined">
+      <div class="col text-center">
+        <button class="button button-outline button-positive" ng-click="ticketCtrl.createTicket()"
+                ng-if="ticketCtrl.storedTicket == undefined">
+          <i class="icon ion-printer"> Nowy bilet </i></button>
+        <h5>Tutaj możesz utworzyć jednorazowy bilet dla wybranej usługi</h5>
+      </div>
+    </div>
+
+    <div class="card" ng-hide="ticketCtrl.loading">
+      <div class="col text-center" ng-if="ticketCtrl.user.isRemembered === true">
+        <button class="button button-outline button-positive" ng-click="ticketCtrl.createAppointment()">
+          <i class="icon ion-earth"> Utwórz wizytę </i></button>
+        <h5>Tutaj możesz zarezerwować wizytę</h5>
+      </div>
+    </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>
+
+

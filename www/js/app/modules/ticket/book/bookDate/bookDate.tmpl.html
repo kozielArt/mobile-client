@@ -1,0 +1,14 @@
+<div class="item item-divider">
+  Wybierz dzień
+</div>
+<ul class="list">
+  <li class="item" ng-repeat="day in bookDateCtrl.dates " ng-click="bookDateCtrl.selectDay(day)">
+    <div>
+      <div class="item item-text-wrap">
+        {{day.date | date : 'yyyy-MM-dd'}}
+      </div>
+    </div>
+  </li>
+</ul>
+
+

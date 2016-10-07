@@ -1,0 +1,42 @@
+<ion-view view-title="Edycja konta">
+  <ion-content>
+
+    <form ng-submit="editAccountCtrl.changeAccountData()">
+      <div class="item item-divider">
+        <h3>Twój adres e-mail</h3>
+      </div>
+      <div class="item item-text-wrap">
+        <h3>{{editAccountCtrl.form.emailAddress}}</h3>
+      </div>
+      <div class="card">
+        <div class="item item-text-wrap">
+          <h3>Nowe imię</h3>
+        </div>
+        <label  class="item item-body">
+          <span class="input-label"></span>
+          <input type="text" ng-model="editAccountCtrl.form.firstName"/>
+        </label>
+
+        <div class="item item-text-wrap">
+          <h3>Nowe nazwisko</h3>
+        </div>
+        <label  class="item item-body">
+          <span class="input-label"></span> <input type="text" ng-model="editAccountCtrl.form.lastName"/>
+        </label>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="editAccountCtrl.cancel()">
+          <i class="ion-arrow-left-a"></i>
+          Wróć
+        </a>
+
+        <a class="tab-item" ng-click="editAccountCtrl.changeAccountData()">
+          <i class="icon ion-settings"></i>
+          Zmień hasło
+        </a>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-view>
